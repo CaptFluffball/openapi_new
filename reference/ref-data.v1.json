@@ -20,7 +20,73 @@
       "description": "Location stuff will appear under this tag"
     }
   ],
-  "paths": {},
+  "paths": {
+    "/ref-cb/v1/airports":{
+      "get":{
+        "tags":[
+          "location data"
+        ],
+        "summary": "Retrieves airports",
+        "description": "This operation will retrieve all of the airports that we know and care about - can be limited by the country te airport is based in",
+        "operationId": "retrieveAllAirports",
+        "parameters": [
+          {
+            "name": "countryCode",
+            "in": "query",
+            "description": "Adding this will limit the response to just airports in the specified country",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "countOfAirports": {
+                      "description": "The number of airports that have been returned",
+                      "type": "number"
+                    },
+                    "airports": {
+                      "description": "The airports",
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "code": {
+                            "type": "string",
+                            "description": "The IATA code for the airport"
+                          },
+                          "name": {
+                            "type": "string",
+                            "description": "The name of the airport - for display purposes"
+                          }
+                        },
+                        "required": ["code"]
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "1 returned": {
+                    "$ref": "../reference/examples/one_airport.json"
+                  },
+                  "2 returned": {
+                    "$ref": "../reference/examples/two_airports.json"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
   "components": {
     "schemas": {}
   }

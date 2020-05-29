@@ -1,0 +1,27 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "ref data",
+    "version": "1.0",
+    "description": "Will handle ref data stuff",
+    "contact": {
+      "name": "Captain Fluffball"
+    }
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000",
+      "description": "local host"
+    }
+  ],
+  "tags": [
+    {
+      "name": "location data",
+      "description": "Location stuff will appear under this tag"
+    }
+  ],
+  "paths": {},
+  "components": {
+    "schemas": {}
+  }
+}

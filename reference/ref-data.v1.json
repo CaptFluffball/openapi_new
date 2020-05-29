@@ -21,14 +21,14 @@
     }
   ],
   "paths": {
-    "/ref-cb/v1/airports":{
-      "get":{
-        "tags":[
+    "/ref-cb/v1/airports": {
+      "get": {
+        "tags": [
           "location data"
         ],
         "summary": "Retrieves airports",
         "description": "This operation will retrieve all of the airports that we know and care about - can be limited by the country te airport is based in",
-        "operationId": "retrieveAllAirports",
+        "operationId": "GetAirports",
         "parameters": [
           {
             "name": "countryCode",
@@ -46,31 +46,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "countOfAirports": {
-                      "description": "The number of airports that have been returned",
-                      "type": "number"
-                    },
-                    "airports": {
-                      "description": "The airports",
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "properties": {
-                          "code": {
-                            "type": "string",
-                            "description": "The IATA code for the airport"
-                          },
-                          "name": {
-                            "type": "string",
-                            "description": "The name of the airport - for display purposes"
-                          }
-                        },
-                        "required": ["code"]
-                      }
-                    }
-                  }
+                  "$ref": "../reference/schemas/get_airport_response.json"
                 },
                 "examples": {
                   "1 returned": {

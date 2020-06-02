@@ -46,7 +46,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "../reference/schemas/get_airport_response.json"
+                  "$ref": "../reference/schemas/get_airports_response.json"
                 },
                 "examples": {
                   "1 returned": {
